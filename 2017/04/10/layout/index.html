@@ -9,18 +9,18 @@
   
   <title>react-native 常用的布局：flexbox | 我的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="注意事项 任何一个元素都可以使用 flex 布局，行内元素使用 display:inline-flex; webkit 内核的浏览器必须加上-webkit 前缀：display：-webkit-flex; 设置 flex 布局以后，子元素的这三个属性将会失效:float,clear,vertical-align.">
+  <meta name="description" content="基本概念 采用 flex 布局的元素就是 flex 容器：flex container.它里面所有的元素都叫子元素：flex item. container 容器存在两根轴：水平的主轴(main axis)和垂直的交叉轴(cross axis).主轴起始位置 main start,结束位置 main end,交叉轴起始位置 cross start,结束位置 cross end. 3.项目默认沿着主">
 <meta name="keywords" content="flex">
 <meta property="og:type" content="article">
 <meta property="og:title" content="react-native 常用的布局：flexbox">
 <meta property="og:url" content="https://chenhx9211.github.io/2017/04/10/layout/index.html">
 <meta property="og:site_name" content="我的技术博客">
-<meta property="og:description" content="注意事项 任何一个元素都可以使用 flex 布局，行内元素使用 display:inline-flex; webkit 内核的浏览器必须加上-webkit 前缀：display：-webkit-flex; 设置 flex 布局以后，子元素的这三个属性将会失效:float,clear,vertical-align.">
+<meta property="og:description" content="基本概念 采用 flex 布局的元素就是 flex 容器：flex container.它里面所有的元素都叫子元素：flex item. container 容器存在两根轴：水平的主轴(main axis)和垂直的交叉轴(cross axis).主轴起始位置 main start,结束位置 main end,交叉轴起始位置 cross start,结束位置 cross end. 3.项目默认沿着主">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-18T10:44:13.385Z">
+<meta property="og:updated_time" content="2019-06-18T13:01:19.148Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react-native 常用的布局：flexbox">
-<meta name="twitter:description" content="注意事项 任何一个元素都可以使用 flex 布局，行内元素使用 display:inline-flex; webkit 内核的浏览器必须加上-webkit 前缀：display：-webkit-flex; 设置 flex 布局以后，子元素的这三个属性将会失效:float,clear,vertical-align.">
+<meta name="twitter:description" content="基本概念 采用 flex 布局的元素就是 flex 容器：flex container.它里面所有的元素都叫子元素：flex item. container 容器存在两根轴：水平的主轴(main axis)和垂直的交叉轴(cross axis).主轴起始位置 main start,结束位置 main end,交叉轴起始位置 cross start,结束位置 cross end. 3.项目默认沿着主">
   
     <link rel="alternative" href="/atom.xml" title="我的技术博客" type="application/atom+xml">
   
@@ -69,7 +69,7 @@
         </a>
         <hgroup>
           <h1 class="header-author"><a href="/">chenhuaxiang</a></h1>
-          <span>爱美食,爱编程,爱运动,爱的太多了!</span>
+          <span>爱编程，爱睡觉😪</span>
         </hgroup>
         
         
@@ -111,6 +111,8 @@
                         
                             <li><a  href="/categories/es6">ES6</a></li>
                         
+                            <li><a  href="/categories/javascript">javascript</a></li>
+                        
                         </ul>
                     </nav>
                     <nav class="header-nav">
@@ -127,7 +129,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/redux/" style="font-size: 10px;">redux</a> <a href="/tags/vue-vuex/" style="font-size: 10px;">vue vuex</a>
+                        <a href="/tags/es6/" style="font-size: 20px;">es6</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/redux/" style="font-size: 10px;">redux</a> <a href="/tags/vue-vuex/" style="font-size: 10px;">vue vuex</a>
                     </div>
                 </section>
                 
@@ -136,7 +138,7 @@
                 
                 <section class="switch-part switch-part3">
                 
-                    <div id="js-aboutme">爱美食,爱编程,爱运动,爱的太多了!</div>
+                    <div id="js-aboutme">爱编程，爱睡觉😪</div>
                 </section>
                 
             </div>
@@ -172,6 +174,8 @@
                     <li><a href="/categories/redux">Redux</a></li>
                 
                     <li><a href="/categories/es6">ES6</a></li>
+                
+                    <li><a href="/categories/javascript">javascript</a></li>
                 
                 <div class="clearfix"></div>
                 </ul>
@@ -232,17 +236,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
-<li>任何一个元素都可以使用 flex 布局，行内元素使用 display:inline-flex;</li>
-<li>webkit 内核的浏览器必须加上-webkit 前缀：display：-webkit-flex;</li>
-<li>设置 flex 布局以后，子元素的这三个属性将会失效:float,clear,vertical-align.</li>
-</ol>
-<a id="more"></a>
-
-<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ol>
+        <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ol>
 <li>采用 flex 布局的元素就是 flex 容器：flex container.它里面所有的元素都叫子元素：flex item.</li>
 <li>container 容器存在两根轴：水平的主轴(main axis)和垂直的交叉轴(cross axis).主轴起始位置 main start,结束位置 main end,交叉轴起始位置 cross start,结束位置 cross end. 3.项目默认沿着主轴排列.</li>
 </ol>
+<a id="more"></a>
+
 <h3 id="container-上设置的属性有-6-个"><a href="#container-上设置的属性有-6-个" class="headerlink" title="container 上设置的属性有 6 个"></a>container 上设置的属性有 6 个</h3><ol>
 <li>flex-direction</li>
 <li>flex-wrap</li>
@@ -298,6 +297,11 @@
 <h3 id="flex：是-flex-grow-flex-shrink-和-flex-basis-的简写，默认值为-0-1-auto。后两个属性可选"><a href="#flex：是-flex-grow-flex-shrink-和-flex-basis-的简写，默认值为-0-1-auto。后两个属性可选" class="headerlink" title="flex：是 flex-grow, flex-shrink 和 flex-basis 的简写，默认值为 0 1 auto。后两个属性可选."></a>flex：是 flex-grow, flex-shrink 和 flex-basis 的简写，默认值为 0 1 auto。后两个属性可选.</h3><h3 id="align-self-允许单个项目有与其他项目不一样的对齐方式，可覆盖-align-items-属性-默认值为-auto"><a href="#align-self-允许单个项目有与其他项目不一样的对齐方式，可覆盖-align-items-属性-默认值为-auto" class="headerlink" title="align-self:允许单个项目有与其他项目不一样的对齐方式，可覆盖 align-items 属性.默认值为 auto."></a>align-self:允许单个项目有与其他项目不一样的对齐方式，可覆盖 align-items 属性.默认值为 auto.</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">   align-self: auto | flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>好啦,到此结束！</p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li>任何一个元素都可以使用 flex 布局，行内元素使用 display:inline-flex;</li>
+<li>webkit 内核的浏览器必须加上-webkit 前缀：display：-webkit-flex;</li>
+<li>设置 flex 布局以后，子元素的这三个属性将会失效:float,clear,vertical-align.</li>
+</ol>
 
       
     </div>
@@ -319,6 +323,11 @@
     </a>
   
   
+    <a  href="/2016/02/17/js设计模式之观察者模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js设计模式之观察者模式</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
 </nav>
 
 
@@ -327,7 +336,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#注意事项"><span class="toc-number">1.</span> <span class="toc-text">注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本概念"><span class="toc-number">1.1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#container-上设置的属性有-6-个"><span class="toc-number">1.2.</span> <span class="toc-text">container 上设置的属性有 6 个</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-direction-主轴的方向"><span class="toc-number">1.3.</span> <span class="toc-text">flex-direction:主轴的方向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-wrap-如果一条轴线排不下，如何换行"><span class="toc-number">1.4.</span> <span class="toc-text">flex-wrap:如果一条轴线排不下，如何换行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-flow：是-flex-direction-和-flex-wrap-的简写"><span class="toc-number">1.5.</span> <span class="toc-text">flex-flow：是 flex-direction 和 flex-wrap 的简写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#justify-content：项目在主轴上的对齐方式"><span class="toc-number">1.6.</span> <span class="toc-text">justify-content：项目在主轴上的对齐方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#align-items：项目在交叉轴上如何对齐"><span class="toc-number">1.7.</span> <span class="toc-text">align-items：项目在交叉轴上如何对齐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#align-content-定义了多根轴线的对齐方式-如果项目只有一根轴线，该属性不起作用"><span class="toc-number">1.8.</span> <span class="toc-text">align-content:定义了多根轴线的对齐方式.如果项目只有一根轴线，该属性不起作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#item-上设置的属性有-6-个"><span class="toc-number">1.9.</span> <span class="toc-text">item 上设置的属性有 6 个</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#order-定义项目的排列顺序-数值越小，排列越靠前，默认为-0"><span class="toc-number">1.10.</span> <span class="toc-text">order:定义项目的排列顺序.数值越小，排列越靠前，默认为 0.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-grow-定义项目的放大比例，默认为-0，即如果存在剩余空间，也不放大"><span class="toc-number">1.11.</span> <span class="toc-text">flex-grow:定义项目的放大比例，默认为 0，即如果存在剩余空间，也不放大.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-shrink：定义了项目的缩小比例，默认为-1，即如果空间不足，该项目将缩小"><span class="toc-number">1.12.</span> <span class="toc-text">flex-shrink：定义了项目的缩小比例，默认为 1，即如果空间不足，该项目将缩小.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-basis：定义了在分配多余空间之前，项目占据的主轴空间（main-size）"><span class="toc-number">1.13.</span> <span class="toc-text">flex-basis：定义了在分配多余空间之前，项目占据的主轴空间（main size）.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex：是-flex-grow-flex-shrink-和-flex-basis-的简写，默认值为-0-1-auto。后两个属性可选"><span class="toc-number">1.14.</span> <span class="toc-text">flex：是 flex-grow, flex-shrink 和 flex-basis 的简写，默认值为 0 1 auto。后两个属性可选.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#align-self-允许单个项目有与其他项目不一样的对齐方式，可覆盖-align-items-属性-默认值为-auto"><span class="toc-number">1.15.</span> <span class="toc-text">align-self:允许单个项目有与其他项目不一样的对齐方式，可覆盖 align-items 属性.默认值为 auto.</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本概念"><span class="toc-number">1.</span> <span class="toc-text">基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#container-上设置的属性有-6-个"><span class="toc-number">1.1.</span> <span class="toc-text">container 上设置的属性有 6 个</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-direction-主轴的方向"><span class="toc-number">1.2.</span> <span class="toc-text">flex-direction:主轴的方向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-wrap-如果一条轴线排不下，如何换行"><span class="toc-number">1.3.</span> <span class="toc-text">flex-wrap:如果一条轴线排不下，如何换行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-flow：是-flex-direction-和-flex-wrap-的简写"><span class="toc-number">1.4.</span> <span class="toc-text">flex-flow：是 flex-direction 和 flex-wrap 的简写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#justify-content：项目在主轴上的对齐方式"><span class="toc-number">1.5.</span> <span class="toc-text">justify-content：项目在主轴上的对齐方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#align-items：项目在交叉轴上如何对齐"><span class="toc-number">1.6.</span> <span class="toc-text">align-items：项目在交叉轴上如何对齐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#align-content-定义了多根轴线的对齐方式-如果项目只有一根轴线，该属性不起作用"><span class="toc-number">1.7.</span> <span class="toc-text">align-content:定义了多根轴线的对齐方式.如果项目只有一根轴线，该属性不起作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#item-上设置的属性有-6-个"><span class="toc-number">1.8.</span> <span class="toc-text">item 上设置的属性有 6 个</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#order-定义项目的排列顺序-数值越小，排列越靠前，默认为-0"><span class="toc-number">1.9.</span> <span class="toc-text">order:定义项目的排列顺序.数值越小，排列越靠前，默认为 0.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-grow-定义项目的放大比例，默认为-0，即如果存在剩余空间，也不放大"><span class="toc-number">1.10.</span> <span class="toc-text">flex-grow:定义项目的放大比例，默认为 0，即如果存在剩余空间，也不放大.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-shrink：定义了项目的缩小比例，默认为-1，即如果空间不足，该项目将缩小"><span class="toc-number">1.11.</span> <span class="toc-text">flex-shrink：定义了项目的缩小比例，默认为 1，即如果空间不足，该项目将缩小.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-basis：定义了在分配多余空间之前，项目占据的主轴空间（main-size）"><span class="toc-number">1.12.</span> <span class="toc-text">flex-basis：定义了在分配多余空间之前，项目占据的主轴空间（main size）.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex：是-flex-grow-flex-shrink-和-flex-basis-的简写，默认值为-0-1-auto。后两个属性可选"><span class="toc-number">1.13.</span> <span class="toc-text">flex：是 flex-grow, flex-shrink 和 flex-basis 的简写，默认值为 0 1 auto。后两个属性可选.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#align-self-允许单个项目有与其他项目不一样的对齐方式，可覆盖-align-items-属性-默认值为-auto"><span class="toc-number">1.14.</span> <span class="toc-text">align-self:允许单个项目有与其他项目不一样的对齐方式，可覆盖 align-items 属性.默认值为 auto.</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意事项"><span class="toc-number">2.</span> <span class="toc-text">注意事项</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -466,10 +475,12 @@
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a  href="/2016/02/17/js设计模式之观察者模式/" title="下一篇: js设计模式之观察者模式">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/redux/">redux</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/es6/">es6</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/基于vue vuex es6 webpack的项目/">基于vue vuex es6 webpack的项目</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/10/layout/">react-native 常用的布局：flexbox</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/09/06/js高级之函数柯里化/">js高级之函数柯里化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/redux/">redux</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/es6/">es6</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/基于vue vuex es6 webpack的项目/">基于vue vuex es6 webpack的项目</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/10/layout/">react-native 常用的布局：flexbox</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/17/js设计模式之观察者模式/">js设计模式之观察者模式</a></li></ul>
     
 <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 
