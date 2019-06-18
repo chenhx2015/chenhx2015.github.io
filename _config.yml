@@ -84,4 +84,4 @@ excerpt_length: 200
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:chenhx9211/chenhx9211.github.io.git
+  repo: git@github.com:chenhx2015/chenhx2015.github.io.git
