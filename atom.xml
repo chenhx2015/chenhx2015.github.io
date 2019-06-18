@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>我的技术博客</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://chenhx9211.github.io/"/>
+  <updated>2019-06-18T10:37:23.144Z</updated>
+  <id>https://chenhx9211.github.io/</id>
+  
+  <author>
+    <name>chenhuaxiang</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>redux</title>
+    <link href="https://chenhx9211.github.io/2017/04/13/redux/"/>
+    <id>https://chenhx9211.github.io/2017/04/13/redux/</id>
+    <published>2017-04-13T02:13:26.000Z</published>
+    <updated>2019-06-18T10:37:23.144Z</updated>
+    
+    <content type="html"><![CDATA[<p>我学习 redux 的心得：</p><p>1.单一的状态树，单向数据流</p><p>2.整个项目只有一个 store</p><a id="more"></a><p>3.由用户发出一个 action，reducer 方法接收这个方法和一个老的 state，再重新返回一个新 state,视图再更新</p><p>4.在开发的时候一般会把很多个 reducer 用 redux 里面的 combineReducers 方法合并在一个，便于管理</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我学习 redux 的心得：&lt;/p&gt;
+&lt;p&gt;1.单一的状态树，单向数据流&lt;/p&gt;
+&lt;p&gt;2.整个项目只有一个 store&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="redux" scheme="https://chenhx9211.github.io/categories/redux/"/>
+    
+    
+      <category term="redux" scheme="https://chenhx9211.github.io/tags/redux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>es6</title>
+    <link href="https://chenhx9211.github.io/2017/04/12/es6/"/>
+    <id>https://chenhx9211.github.io/2017/04/12/es6/</id>
+    <published>2017-04-12T10:54:22.000Z</published>
+    <updated>2019-06-18T10:39:43.596Z</updated>
+    
+    <content type="html"><![CDATA[<p>先说一下 let 吧！</p><ol><li>let 和 var 一样用来声明变量，但是不同的是：let 命令只在所在的代码块内有效(es5 没有块级作用域)</li><li>for 循环里面不要再用 var 了，要不然每次输出来的都是最后一个遍历出来的值</li><li>let 不存在变量提升，一定要先声明后使用，要不然报错；而 var 可以先使用再声明，输出来 undefined</li><li>暂时性死区，只要进去作用域，所要使用的变量就已经存在了，但是不可以获取，只有等到变量声明了才可以获取和使用它</li><li>let 不允许在同一作用域内重复声明</li></ol><a id="more"></a><p>为什么需要块级作用域呢？<br>@内层变量可能会覆盖外层变量<br>@用来计数的循环变量泄露为全局变量，很容易造成内存泄漏</p><p>下面再说说 const!</p><ol><li>用来声明常量，所以一旦声明变量，就必须立即初始化，不能留到以后赋值，只声明不赋值，就会报错</li><li>const 的作用域与 let 命令相同：只在声明所在的块级作用域内有效</li><li>const 命令声明的常量也是不提升，同样存在暂时性死区，只能在声明的位置后面使用</li><li>const 声明的常量，也与 let 一样不可重复声明</li></ol><h4 id="结构先不说，比较简单，主要分为数组，对象，字符串，数值，布尔值，函数参数解构"><a href="#结构先不说，比较简单，主要分为数组，对象，字符串，数值，布尔值，函数参数解构" class="headerlink" title="结构先不说，比较简单，主要分为数组，对象，字符串，数值，布尔值，函数参数解构"></a>结构先不说，比较简单，主要分为数组，对象，字符串，数值，布尔值，函数参数解构</h4><p>看了一圈下来，关键是用途，总结一下：</p><ol><li>交换变量的值</li><li>从函数返回多个值</li><li>函数参数的定义</li><li>提取 json 数据(我认为这个比较实用，拿出来可以直接放到视图)</li><li>遍历 Map 结构</li></ol><h4 id="字符串的扩展-下面几个是我认为能用到项目里面频率相对高的"><a href="#字符串的扩展-下面几个是我认为能用到项目里面频率相对高的" class="headerlink" title="字符串的扩展(下面几个是我认为能用到项目里面频率相对高的)"></a>字符串的扩展(下面几个是我认为能用到项目里面频率相对高的)</h4><ol><li>Unicode 表示法：eg:\u{1F680}</li><li>遍历接口器，可以把字符串的每一个字符都遍历出来</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="built_in">let</span> codePoint of <span class="string">'foo'</span>) &#123;</span><br><span class="line">    console.log(codePoint)</span><br><span class="line">&#125;</span><br><span class="line">// <span class="string">"f"</span></span><br><span class="line">// <span class="string">"o"</span></span><br><span class="line">// <span class="string">"o"</span></span><br></pre></td></tr></table></figure><ol start="3"><li>at(),这个和 es5 的 charAt()差不多，并且能识别出来码点大于 0xFFFF 的字符</li><li>includes(),startsWith(),endsWith(),he es5 的 indexOf 方法差不多，它返回的是布尔值</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var s = <span class="string">'Hello world!'</span>;</span><br><span class="line"></span><br><span class="line">s.startsWith(<span class="string">'Hello'</span>) // <span class="literal">true</span></span><br><span class="line">s.endsWith(<span class="string">'!'</span>) // <span class="literal">true</span></span><br><span class="line">s.includes(<span class="string">'o'</span>) // <span class="literal">true</span></span><br></pre></td></tr></table></figure><ol start="5"><li>repeat()<br>直接看下面的代码吧</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'x'</span>.repeat(3) // <span class="string">"xxx"</span></span><br><span class="line"><span class="string">'hello'</span>.repeat(2) // <span class="string">"hellohello"</span></span><br><span class="line"><span class="string">'na'</span>.repeat(0) // <span class="string">""</span></span><br></pre></td></tr></table></figure><p>注意：如果是小数，则取整；负数或者 Infinity，报错；0 到-1 的都视为 0；NaN 视为 0</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;先说一下 let 吧！&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;let 和 var 一样用来声明变量，但是不同的是：let 命令只在所在的代码块内有效(es5 没有块级作用域)&lt;/li&gt;
+&lt;li&gt;for 循环里面不要再用 var 了，要不然每次输出来的都是最后一个遍历出来的值&lt;/li&gt;
+&lt;li&gt;let 不存在变量提升，一定要先声明后使用，要不然报错；而 var 可以先使用再声明，输出来 undefined&lt;/li&gt;
+&lt;li&gt;暂时性死区，只要进去作用域，所要使用的变量就已经存在了，但是不可以获取，只有等到变量声明了才可以获取和使用它&lt;/li&gt;
+&lt;li&gt;let 不允许在同一作用域内重复声明&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="es6" scheme="https://chenhx9211.github.io/categories/es6/"/>
+    
+    
+      <category term="es6" scheme="https://chenhx9211.github.io/tags/es6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于vue vuex es6 webpack的项目</title>
+    <link href="https://chenhx9211.github.io/2017/04/11/%E5%9F%BA%E4%BA%8Evue%20vuex%20es6%20webpack%E7%9A%84%E9%A1%B9%E7%9B%AE/"/>
+    <id>https://chenhx9211.github.io/2017/04/11/基于vue vuex es6 webpack的项目/</id>
+    <published>2017-04-11T13:46:37.000Z</published>
+    <updated>2019-06-18T10:40:23.215Z</updated>
+    
+    <content type="html"><![CDATA[<p>一个基于 vue+vuex+es6+webpack 技术栈的 spa 开店项目</p><a id="more"></a><ol><li>使用了 vue-router 来做页面的路由跳转，主页跳转至详情页面使用具体路由的配置。</li><li>整个项目使用的是 es6 的语法<br>我比较喜欢 es6 的语法，arrow function，let,const,template string，解构,尤其是在 react 里面比较喜欢用的 class,extends,super。</li><li>状态管理用 vuex</li><li>使用 axios 从后端获取数据</li><li>对啦，项目使用的脚手架 vue-cli,快速上手</li><li>github 地址：<a href="https://github.com/chenhx9211/vue-onlineStore" target="_blank" rel="noopener">https://github.com/chenhx9211/vue-onlineStore</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一个基于 vue+vuex+es6+webpack 技术栈的 spa 开店项目&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="vue" scheme="https://chenhx9211.github.io/categories/vue/"/>
+    
+    
+      <category term="vue vuex" scheme="https://chenhx9211.github.io/tags/vue-vuex/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>react-native 常用的布局：flexbox</title>
+    <link href="https://chenhx9211.github.io/2017/04/10/layout/"/>
+    <id>https://chenhx9211.github.io/2017/04/10/layout/</id>
+    <published>2017-04-10T06:09:14.000Z</published>
+    <updated>2019-06-18T10:44:13.385Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol><li>任何一个元素都可以使用 flex 布局，行内元素使用 display:inline-flex;</li><li>webkit 内核的浏览器必须加上-webkit 前缀：display：-webkit-flex;</li><li>设置 flex 布局以后，子元素的这三个属性将会失效:float,clear,vertical-align.</li></ol><a id="more"></a><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ol><li>采用 flex 布局的元素就是 flex 容器：flex container.它里面所有的元素都叫子元素：flex item.</li><li>container 容器存在两根轴：水平的主轴(main axis)和垂直的交叉轴(cross axis).主轴起始位置 main start,结束位置 main end,交叉轴起始位置 cross start,结束位置 cross end. 3.项目默认沿着主轴排列.</li></ol><h3 id="container-上设置的属性有-6-个"><a href="#container-上设置的属性有-6-个" class="headerlink" title="container 上设置的属性有 6 个"></a>container 上设置的属性有 6 个</h3><ol><li>flex-direction</li><li>flex-wrap</li><li>flex-flow</li><li>justify-content</li><li>align-items</li><li>align-content</li></ol><h3 id="flex-direction-主轴的方向"><a href="#flex-direction-主轴的方向" class="headerlink" title="flex-direction:主轴的方向"></a>flex-direction:主轴的方向</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">    flex-direction:row | row-reverse | column | column-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="flex-wrap-如果一条轴线排不下，如何换行"><a href="#flex-wrap-如果一条轴线排不下，如何换行" class="headerlink" title="flex-wrap:如果一条轴线排不下，如何换行"></a>flex-wrap:如果一条轴线排不下，如何换行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">    flex-wrap: nowrap | wrap | wrap-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>1.nowrap:不换行<br>2.wrap：换行，第一行在上方<br>3.wrap-reverse：换行，第一行在下方</p><h3 id="flex-flow：是-flex-direction-和-flex-wrap-的简写"><a href="#flex-flow：是-flex-direction-和-flex-wrap-的简写" class="headerlink" title="flex-flow：是 flex-direction 和 flex-wrap 的简写"></a>flex-flow：是 flex-direction 和 flex-wrap 的简写</h3><h3 id="justify-content：项目在主轴上的对齐方式"><a href="#justify-content：项目在主轴上的对齐方式" class="headerlink" title="justify-content：项目在主轴上的对齐方式"></a>justify-content：项目在主轴上的对齐方式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">    justify-content: flex-start | flex-end | center | space-between | space-around;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol><li>flex-start：左对齐</li><li>flex-end：右对齐</li><li>center：居中</li><li>space-between：两端对齐，项目之间的间隔都相等</li><li>space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍</li></ol><h3 id="align-items：项目在交叉轴上如何对齐"><a href="#align-items：项目在交叉轴上如何对齐" class="headerlink" title="align-items：项目在交叉轴上如何对齐"></a>align-items：项目在交叉轴上如何对齐</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">    align-items: flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol><li>flex-start：交叉轴的起点对齐</li><li>flex-end：交叉轴的终点对齐</li><li>center：交叉轴的中点对齐</li><li>baseline：项目的第一行文字的基线对齐</li><li>stretch：如果项目未设置高度或设为 auto，将占满整个容器的高度(默认值)</li></ol><h3 id="align-content-定义了多根轴线的对齐方式-如果项目只有一根轴线，该属性不起作用"><a href="#align-content-定义了多根轴线的对齐方式-如果项目只有一根轴线，该属性不起作用" class="headerlink" title="align-content:定义了多根轴线的对齐方式.如果项目只有一根轴线，该属性不起作用"></a>align-content:定义了多根轴线的对齐方式.如果项目只有一根轴线，该属性不起作用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">    align-content: flex-start | flex-end | center | space-between | space-around | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="item-上设置的属性有-6-个"><a href="#item-上设置的属性有-6-个" class="headerlink" title="item 上设置的属性有 6 个"></a>item 上设置的属性有 6 个</h3><ol><li>order</li><li>flex-grow</li><li>flex-shrink</li><li>flex-basis</li><li>flex</li><li>align-self</li></ol><h3 id="order-定义项目的排列顺序-数值越小，排列越靠前，默认为-0"><a href="#order-定义项目的排列顺序-数值越小，排列越靠前，默认为-0" class="headerlink" title="order:定义项目的排列顺序.数值越小，排列越靠前，默认为 0."></a>order:定义项目的排列顺序.数值越小，排列越靠前，默认为 0.</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">  order: &lt;<span class="built_in">integer</span>&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="flex-grow-定义项目的放大比例，默认为-0，即如果存在剩余空间，也不放大"><a href="#flex-grow-定义项目的放大比例，默认为-0，即如果存在剩余空间，也不放大" class="headerlink" title="flex-grow:定义项目的放大比例，默认为 0，即如果存在剩余空间，也不放大."></a>flex-grow:定义项目的放大比例，默认为 0，即如果存在剩余空间，也不放大.</h3><p>注意：如果一个项目的 flex-grow 属性为 2，其他项目都为 1，则前者占据的剩余空间将比其他项多一倍</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">   flex-grow: &lt;number&gt;; /* default 0 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="flex-shrink：定义了项目的缩小比例，默认为-1，即如果空间不足，该项目将缩小"><a href="#flex-shrink：定义了项目的缩小比例，默认为-1，即如果空间不足，该项目将缩小" class="headerlink" title="flex-shrink：定义了项目的缩小比例，默认为 1，即如果空间不足，该项目将缩小."></a>flex-shrink：定义了项目的缩小比例，默认为 1，即如果空间不足，该项目将缩小.</h3><p>注意：如果所有项目的 flex-shrink 属性都为 1，当空间不足时，都将等比例缩小。如果一个项目的 flex-shrink 属性为 0，其他项目都为 1，则空间不足时，前者不缩小</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">   flex-shrink: &lt;number&gt;; /* default 1 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="flex-basis：定义了在分配多余空间之前，项目占据的主轴空间（main-size）"><a href="#flex-basis：定义了在分配多余空间之前，项目占据的主轴空间（main-size）" class="headerlink" title="flex-basis：定义了在分配多余空间之前，项目占据的主轴空间（main size）."></a>flex-basis：定义了在分配多余空间之前，项目占据的主轴空间（main size）.</h3><p>注意：它可以设为跟 width 或 height 属性一样的值（比如 350px），则项目将占据固定空间</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">   flex-basis: &lt;length&gt; | auto; /* default auto */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="flex：是-flex-grow-flex-shrink-和-flex-basis-的简写，默认值为-0-1-auto。后两个属性可选"><a href="#flex：是-flex-grow-flex-shrink-和-flex-basis-的简写，默认值为-0-1-auto。后两个属性可选" class="headerlink" title="flex：是 flex-grow, flex-shrink 和 flex-basis 的简写，默认值为 0 1 auto。后两个属性可选."></a>flex：是 flex-grow, flex-shrink 和 flex-basis 的简写，默认值为 0 1 auto。后两个属性可选.</h3><h3 id="align-self-允许单个项目有与其他项目不一样的对齐方式，可覆盖-align-items-属性-默认值为-auto"><a href="#align-self-允许单个项目有与其他项目不一样的对齐方式，可覆盖-align-items-属性-默认值为-auto" class="headerlink" title="align-self:允许单个项目有与其他项目不一样的对齐方式，可覆盖 align-items 属性.默认值为 auto."></a>align-self:允许单个项目有与其他项目不一样的对齐方式，可覆盖 align-items 属性.默认值为 auto.</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">   align-self: auto | flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>好啦,到此结束！</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;注意事项&quot;&gt;&lt;a href=&quot;#注意事项&quot; class=&quot;headerlink&quot; title=&quot;注意事项&quot;&gt;&lt;/a&gt;注意事项&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;任何一个元素都可以使用 flex 布局，行内元素使用 display:inline-flex;&lt;/li&gt;
+&lt;li&gt;webkit 内核的浏览器必须加上-webkit 前缀：display：-webkit-flex;&lt;/li&gt;
+&lt;li&gt;设置 flex 布局以后，子元素的这三个属性将会失效:float,clear,vertical-align.&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="css" scheme="https://chenhx9211.github.io/categories/css/"/>
+    
+    
+      <category term="flex" scheme="https://chenhx9211.github.io/tags/flex/"/>
+    
+  </entry>
+  
+</feed>

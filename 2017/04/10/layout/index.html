@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl">
+  
+  
+  
+  
+  <title>react-native 常用的布局：flexbox | 我的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="注意事项 任何一个元素都可以使用 flex 布局，行内元素使用 display:inline-flex; webkit 内核的浏览器必须加上-webkit 前缀：display：-webkit-flex; 设置 flex 布局以后，子元素的这三个属性将会失效:float,clear,vertical-align.">
+<meta name="keywords" content="flex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react-native 常用的布局：flexbox">
+<meta property="og:url" content="https://chenhx9211.github.io/2017/04/10/layout/index.html">
+<meta property="og:site_name" content="我的技术博客">
+<meta property="og:description" content="注意事项 任何一个元素都可以使用 flex 布局，行内元素使用 display:inline-flex; webkit 内核的浏览器必须加上-webkit 前缀：display：-webkit-flex; 设置 flex 布局以后，子元素的这三个属性将会失效:float,clear,vertical-align.">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-18T10:44:13.385Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="react-native 常用的布局：flexbox">
+<meta name="twitter:description" content="注意事项 任何一个元素都可以使用 flex 布局，行内元素使用 display:inline-flex; webkit 内核的浏览器必须加上-webkit 前缀：display：-webkit-flex; 设置 flex 布局以后，子元素的这三个属性将会失效:float,clear,vertical-align.">
+  
+    <link rel="alternative" href="/atom.xml" title="我的技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">chenhuaxiang</a></h1>
+          <span>爱美食,爱编程,爱运动,爱的太多了!</span>
+        </hgroup>
+        
+        
+
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/archives/">所有文章</a></li>
+                        
+                            <li><a  href="/categories/css/">CSS</a></li>
+                        
+                            <li><a  href="/categories/redux">Redux</a></li>
+                        
+                            <li><a  href="/categories/es6">ES6</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="https://github.com/chenhx9211/" title="github">github</a>
+                            
+                                <a class="fl rss"  target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                        </ul>
+
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/redux/" style="font-size: 10px;">redux</a> <a href="/tags/vue-vuex/" style="font-size: 10px;">vue vuex</a>
+                    </div>
+                </section>
+                
+                
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">爱美食,爱编程,爱运动,爱的太多了!</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">chenhuaxiang</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">chenhuaxiang</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/categories/css/">CSS</a></li>
+                
+                    <li><a href="/categories/redux">Redux</a></li>
+                
+                    <li><a href="/categories/es6">ES6</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/chenhx9211/" title="github">github</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-layout" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/04/10/layout/" class="article-date">
+      <time datetime="2017-04-10T06:09:14.000Z" itemprop="datePublished">2017-04-10</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      react-native 常用的布局：flexbox
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/css/">css</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flex/">flex</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li>任何一个元素都可以使用 flex 布局，行内元素使用 display:inline-flex;</li>
+<li>webkit 内核的浏览器必须加上-webkit 前缀：display：-webkit-flex;</li>
+<li>设置 flex 布局以后，子元素的这三个属性将会失效:float,clear,vertical-align.</li>
+</ol>
+<a id="more"></a>
+
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ol>
+<li>采用 flex 布局的元素就是 flex 容器：flex container.它里面所有的元素都叫子元素：flex item.</li>
+<li>container 容器存在两根轴：水平的主轴(main axis)和垂直的交叉轴(cross axis).主轴起始位置 main start,结束位置 main end,交叉轴起始位置 cross start,结束位置 cross end. 3.项目默认沿着主轴排列.</li>
+</ol>
+<h3 id="container-上设置的属性有-6-个"><a href="#container-上设置的属性有-6-个" class="headerlink" title="container 上设置的属性有 6 个"></a>container 上设置的属性有 6 个</h3><ol>
+<li>flex-direction</li>
+<li>flex-wrap</li>
+<li>flex-flow</li>
+<li>justify-content</li>
+<li>align-items</li>
+<li>align-content</li>
+</ol>
+<h3 id="flex-direction-主轴的方向"><a href="#flex-direction-主轴的方向" class="headerlink" title="flex-direction:主轴的方向"></a>flex-direction:主轴的方向</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">    flex-direction:row | row-reverse | column | column-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="flex-wrap-如果一条轴线排不下，如何换行"><a href="#flex-wrap-如果一条轴线排不下，如何换行" class="headerlink" title="flex-wrap:如果一条轴线排不下，如何换行"></a>flex-wrap:如果一条轴线排不下，如何换行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">    flex-wrap: nowrap | wrap | wrap-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>1.nowrap:不换行<br>2.wrap：换行，第一行在上方<br>3.wrap-reverse：换行，第一行在下方</p>
+<h3 id="flex-flow：是-flex-direction-和-flex-wrap-的简写"><a href="#flex-flow：是-flex-direction-和-flex-wrap-的简写" class="headerlink" title="flex-flow：是 flex-direction 和 flex-wrap 的简写"></a>flex-flow：是 flex-direction 和 flex-wrap 的简写</h3><h3 id="justify-content：项目在主轴上的对齐方式"><a href="#justify-content：项目在主轴上的对齐方式" class="headerlink" title="justify-content：项目在主轴上的对齐方式"></a>justify-content：项目在主轴上的对齐方式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">    justify-content: flex-start | flex-end | center | space-between | space-around;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>flex-start：左对齐</li>
+<li>flex-end：右对齐</li>
+<li>center：居中</li>
+<li>space-between：两端对齐，项目之间的间隔都相等</li>
+<li>space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍</li>
+</ol>
+<h3 id="align-items：项目在交叉轴上如何对齐"><a href="#align-items：项目在交叉轴上如何对齐" class="headerlink" title="align-items：项目在交叉轴上如何对齐"></a>align-items：项目在交叉轴上如何对齐</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">    align-items: flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>flex-start：交叉轴的起点对齐</li>
+<li>flex-end：交叉轴的终点对齐</li>
+<li>center：交叉轴的中点对齐</li>
+<li>baseline：项目的第一行文字的基线对齐</li>
+<li>stretch：如果项目未设置高度或设为 auto，将占满整个容器的高度(默认值)</li>
+</ol>
+<h3 id="align-content-定义了多根轴线的对齐方式-如果项目只有一根轴线，该属性不起作用"><a href="#align-content-定义了多根轴线的对齐方式-如果项目只有一根轴线，该属性不起作用" class="headerlink" title="align-content:定义了多根轴线的对齐方式.如果项目只有一根轴线，该属性不起作用"></a>align-content:定义了多根轴线的对齐方式.如果项目只有一根轴线，该属性不起作用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">    align-content: flex-start | flex-end | center | space-between | space-around | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="item-上设置的属性有-6-个"><a href="#item-上设置的属性有-6-个" class="headerlink" title="item 上设置的属性有 6 个"></a>item 上设置的属性有 6 个</h3><ol>
+<li>order</li>
+<li>flex-grow</li>
+<li>flex-shrink</li>
+<li>flex-basis</li>
+<li>flex</li>
+<li>align-self</li>
+</ol>
+<h3 id="order-定义项目的排列顺序-数值越小，排列越靠前，默认为-0"><a href="#order-定义项目的排列顺序-数值越小，排列越靠前，默认为-0" class="headerlink" title="order:定义项目的排列顺序.数值越小，排列越靠前，默认为 0."></a>order:定义项目的排列顺序.数值越小，排列越靠前，默认为 0.</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">  order: &lt;<span class="built_in">integer</span>&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="flex-grow-定义项目的放大比例，默认为-0，即如果存在剩余空间，也不放大"><a href="#flex-grow-定义项目的放大比例，默认为-0，即如果存在剩余空间，也不放大" class="headerlink" title="flex-grow:定义项目的放大比例，默认为 0，即如果存在剩余空间，也不放大."></a>flex-grow:定义项目的放大比例，默认为 0，即如果存在剩余空间，也不放大.</h3><p>注意：如果一个项目的 flex-grow 属性为 2，其他项目都为 1，则前者占据的剩余空间将比其他项多一倍</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">   flex-grow: &lt;number&gt;; /* default 0 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="flex-shrink：定义了项目的缩小比例，默认为-1，即如果空间不足，该项目将缩小"><a href="#flex-shrink：定义了项目的缩小比例，默认为-1，即如果空间不足，该项目将缩小" class="headerlink" title="flex-shrink：定义了项目的缩小比例，默认为 1，即如果空间不足，该项目将缩小."></a>flex-shrink：定义了项目的缩小比例，默认为 1，即如果空间不足，该项目将缩小.</h3><p>注意：如果所有项目的 flex-shrink 属性都为 1，当空间不足时，都将等比例缩小。如果一个项目的 flex-shrink 属性为 0，其他项目都为 1，则空间不足时，前者不缩小</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">   flex-shrink: &lt;number&gt;; /* default 1 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="flex-basis：定义了在分配多余空间之前，项目占据的主轴空间（main-size）"><a href="#flex-basis：定义了在分配多余空间之前，项目占据的主轴空间（main-size）" class="headerlink" title="flex-basis：定义了在分配多余空间之前，项目占据的主轴空间（main size）."></a>flex-basis：定义了在分配多余空间之前，项目占据的主轴空间（main size）.</h3><p>注意：它可以设为跟 width 或 height 属性一样的值（比如 350px），则项目将占据固定空间</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">   flex-basis: &lt;length&gt; | auto; /* default auto */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="flex：是-flex-grow-flex-shrink-和-flex-basis-的简写，默认值为-0-1-auto。后两个属性可选"><a href="#flex：是-flex-grow-flex-shrink-和-flex-basis-的简写，默认值为-0-1-auto。后两个属性可选" class="headerlink" title="flex：是 flex-grow, flex-shrink 和 flex-basis 的简写，默认值为 0 1 auto。后两个属性可选."></a>flex：是 flex-grow, flex-shrink 和 flex-basis 的简写，默认值为 0 1 auto。后两个属性可选.</h3><h3 id="align-self-允许单个项目有与其他项目不一样的对齐方式，可覆盖-align-items-属性-默认值为-auto"><a href="#align-self-允许单个项目有与其他项目不一样的对齐方式，可覆盖-align-items-属性-默认值为-auto" class="headerlink" title="align-self:允许单个项目有与其他项目不一样的对齐方式，可覆盖 align-items 属性.默认值为 auto."></a>align-self:允许单个项目有与其他项目不一样的对齐方式，可覆盖 align-items 属性.默认值为 auto.</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item &#123;</span><br><span class="line">   align-self: auto | flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>好啦,到此结束！</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+<nav id="article-nav">
+  
+    <a  href="/2017/04/11/基于vue vuex es6 webpack的项目/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          基于vue vuex es6 webpack的项目
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#注意事项"><span class="toc-number">1.</span> <span class="toc-text">注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本概念"><span class="toc-number">1.1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#container-上设置的属性有-6-个"><span class="toc-number">1.2.</span> <span class="toc-text">container 上设置的属性有 6 个</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-direction-主轴的方向"><span class="toc-number">1.3.</span> <span class="toc-text">flex-direction:主轴的方向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-wrap-如果一条轴线排不下，如何换行"><span class="toc-number">1.4.</span> <span class="toc-text">flex-wrap:如果一条轴线排不下，如何换行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-flow：是-flex-direction-和-flex-wrap-的简写"><span class="toc-number">1.5.</span> <span class="toc-text">flex-flow：是 flex-direction 和 flex-wrap 的简写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#justify-content：项目在主轴上的对齐方式"><span class="toc-number">1.6.</span> <span class="toc-text">justify-content：项目在主轴上的对齐方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#align-items：项目在交叉轴上如何对齐"><span class="toc-number">1.7.</span> <span class="toc-text">align-items：项目在交叉轴上如何对齐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#align-content-定义了多根轴线的对齐方式-如果项目只有一根轴线，该属性不起作用"><span class="toc-number">1.8.</span> <span class="toc-text">align-content:定义了多根轴线的对齐方式.如果项目只有一根轴线，该属性不起作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#item-上设置的属性有-6-个"><span class="toc-number">1.9.</span> <span class="toc-text">item 上设置的属性有 6 个</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#order-定义项目的排列顺序-数值越小，排列越靠前，默认为-0"><span class="toc-number">1.10.</span> <span class="toc-text">order:定义项目的排列顺序.数值越小，排列越靠前，默认为 0.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-grow-定义项目的放大比例，默认为-0，即如果存在剩余空间，也不放大"><span class="toc-number">1.11.</span> <span class="toc-text">flex-grow:定义项目的放大比例，默认为 0，即如果存在剩余空间，也不放大.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-shrink：定义了项目的缩小比例，默认为-1，即如果空间不足，该项目将缩小"><span class="toc-number">1.12.</span> <span class="toc-text">flex-shrink：定义了项目的缩小比例，默认为 1，即如果空间不足，该项目将缩小.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-basis：定义了在分配多余空间之前，项目占据的主轴空间（main-size）"><span class="toc-number">1.13.</span> <span class="toc-text">flex-basis：定义了在分配多余空间之前，项目占据的主轴空间（main size）.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex：是-flex-grow-flex-shrink-和-flex-basis-的简写，默认值为-0-1-auto。后两个属性可选"><span class="toc-number">1.14.</span> <span class="toc-text">flex：是 flex-grow, flex-shrink 和 flex-basis 的简写，默认值为 0 1 auto。后两个属性可选.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#align-self-允许单个项目有与其他项目不一样的对齐方式，可覆盖-align-items-属性-默认值为-auto"><span class="toc-number">1.15.</span> <span class="toc-text">align-self:允许单个项目有与其他项目不一样的对齐方式，可覆盖 align-items 属性.默认值为 auto.</span></a></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+<div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+    <link rel="stylesheet" type="text/css" href="/css/showshare.css"></head>
+    <div id="share" class="bdsharebuttonbox">
+        <button class="share-toggle-button"><i class="share-icon fa fa-share-alt"></i>
+        </button>
+        <ul class="share-items">
+            <li class="share-item"><a href="#" class="share-button fa fa-weibo" data-cmd="tsina" title="分享到新浪微博"></a></li>
+            <li class="share-item"><a href="#" class="share-button fa fa-weixin" data-cmd="weixin" title="分享到微信"></a></li>
+            <li class="share-item"><a href="#" class="share-button fa fa-qq" data-cmd="sqq" title="分享到QQ好友"></a></li>
+            <li class="share-item"><a href="#" class="share-button fa fa-facebook" data-cmd="fbook" title="分享到Facebook"></a></li>
+            <li class="share-item"><a href="#" class="share-button fa fa-twitter" data-cmd="twi" title="分享到Twitter"></a></li>
+            <li class="share-item"><a href="#" class="share-button fa fa-linkedin" data-cmd="linkedin" title="分享到linkedin"></a></li>
+        </ul>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="800">
+        <defs>
+            <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -15" result="goo" />
+                <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+            </filter>
+        </defs>
+    </svg>
+    <!-- 推荐开源CDN来选取需引用的外部JS //-->
+    <script type="text/javascript" src="http://cdn.gbtags.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/js/TweenMax.min.js"></script>
+    <script src="/js/TweenMax.js"></script>
+<script>
+    window._bd_share_config = {
+    common : {
+                    bdText : '',
+                    //文本内容
+                    bdDesc : 'Luuman，90后，水瓶座普通男青年！爱折腾，爱运动，更爱游离于错综复杂的编码与逻辑中，无法自拔。相信编程是一门艺术，自诩为游弋在代码里的人生。',
+                    // 描述
+                    bdUrl : 'http://luuman.github.io/',
+                    // URL地址
+                    bdPic : 'https://hexo.io/build/screenshots/spfk-2b30506937.png'
+                    // 图片信息
+                },
+        share: [{
+            "bdSize": 24
+        }]
+    }
+    with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~ (-new Date() / 36e5)];
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-33765729-1']);
+    _gaq.push(['_setDomainName', 'chuanke.com']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/2017/04/11/基于vue vuex es6 webpack的项目/" title="上一篇: 基于vue vuex es6 webpack的项目">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/redux/">redux</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/es6/">es6</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/11/基于vue vuex es6 webpack的项目/">基于vue vuex es6 webpack的项目</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/10/layout/">react-native 常用的布局：flexbox</a></li></ul>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2019 chenhuaxiang
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
