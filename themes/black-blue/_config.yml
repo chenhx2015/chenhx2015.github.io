@@ -17,10 +17,10 @@ menu:
 # 静心阅读: /tags
 
 # Link to your avatar | 填写头像地址
-avatar: /img/avatar.png
+avatar: /img/ali.png
 
 # Small icon of Your site | 站点小图标地址
-favicon: /img/favicon.png
+favicon: /img/thumbsup.jpg
 
 # 域名是否启用https，如果启用，js文件必须https加载
 isHttps: true
@@ -31,7 +31,7 @@ isHttps: true
 ## RSS requires a plugin to take effect | 使用 RSS 需先安装对应插件
 ## https://github.com/hexojs/hexo-generator-feed
 subnav:
-  github: https://github.com/chenhx9211/
+  github: https://github.com/chenhx2015/
   # weibo: xxxxxxxx
   rss: /atom.xml
 
