@@ -2,65 +2,86 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chenhx9211.github.io/2017/09/06/%E9%97%AD%E5%8C%85/</loc>
+    
+    <lastmod>2019-06-19T14:35:32.985Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://chenhx9211.github.io/2017/09/06/%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E5%92%8C%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE/</loc>
+    
+    <lastmod>2019-06-19T14:14:37.759Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://chenhx9211.github.io/2016/09/15/%E5%A4%9A%E7%A7%8D%E7%BB%A7%E6%89%BF%E6%96%B9%E5%BC%8F/</loc>
+    
+    <lastmod>2019-06-19T12:31:46.913Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://chenhx9211.github.io/2016/07/02/%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/</loc>
+    
+    <lastmod>2019-06-19T12:31:08.662Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://chenhx9211.github.io/2016/04/20/JavaScript%E4%BB%A3%E7%A0%81%E7%9A%84%E8%A7%A3%E9%87%8A%E5%92%8C%E6%89%A7%E8%A1%8C/</loc>
+    
+    <lastmod>2019-06-19T12:30:11.774Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://chenhx9211.github.io/2017/07/10/layout/</loc>
+    
+    <lastmod>2019-06-19T11:22:14.639Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://chenhx9211.github.io/2019/06/18/%E5%9F%BA%E4%BA%8Evue%20vuex%20es6%20webpack%E7%9A%84%E9%A1%B9%E7%9B%AE/</loc>
+    
+    <lastmod>2019-06-19T11:21:48.954Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://chenhx9211.github.io/2017/09/23/%E9%AB%98%E6%80%A7%E8%83%BDWeb%E8%BF%9B%E9%98%B6%E6%8C%87%E5%8D%97%E6%91%98%E8%A6%81/</loc>
+    
+    <lastmod>2019-06-19T10:25:24.327Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://chenhx9211.github.io/2018/04/12/es6/</loc>
+    
+    <lastmod>2019-06-19T09:17:10.534Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://chenhx9211.github.io/2017/11/08/Best%20Practices%20for%20Speeding%20Up%20Your%20Web%20Site/</loc>
+    
+    <lastmod>2019-06-19T09:11:19.277Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://chenhx9211.github.io/2017/09/06/%E9%AB%98%E6%80%A7%E8%83%BDWeb%E5%BB%BA%E8%AE%BE%E6%8C%87%E5%8D%97%E6%91%98%E8%A6%81/</loc>
     
-    <lastmod>2019-06-19T07:09:22.740Z</lastmod>
+    <lastmod>2019-06-19T08:05:16.171Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://chenhx9211.github.io/2017/09/06/%E9%AB%98%E6%80%A7%E8%83%BDWeb%E8%BF%9B%E9%98%B6%E6%8C%87%E5%8D%97%E6%91%98%E8%A6%81/</loc>
+    <loc>https://chenhx9211.github.io/2018/04/13/redux/</loc>
     
-    <lastmod>2019-06-19T04:24:21.529Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://chenhx9211.github.io/2018/04/08/Best%20Practices%20for%20Speeding%20Up%20Your%20Web%20Site/</loc>
-    
-    <lastmod>2019-06-19T04:20:02.951Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://chenhx9211.github.io/2016/02/17/js%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</loc>
-    
-    <lastmod>2019-06-18T15:36:41.545Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://chenhx9211.github.io/2017/09/06/js%E9%AB%98%E7%BA%A7%E4%B9%8B%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/</loc>
-    
-    <lastmod>2019-06-18T15:00:35.121Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://chenhx9211.github.io/2017/04/13/redux/</loc>
-    
-    <lastmod>2019-06-18T13:44:56.601Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://chenhx9211.github.io/2017/04/10/layout/</loc>
-    
-    <lastmod>2019-06-18T13:01:19.148Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://chenhx9211.github.io/2017/04/11/%E5%9F%BA%E4%BA%8Evue%20vuex%20es6%20webpack%E7%9A%84%E9%A1%B9%E7%9B%AE/</loc>
-    
-    <lastmod>2019-06-18T10:40:23.215Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://chenhx9211.github.io/2017/04/12/es6/</loc>
-    
-    <lastmod>2019-06-18T10:39:43.596Z</lastmod>
+    <lastmod>2019-06-19T08:00:56.698Z</lastmod>
     
   </url>
   

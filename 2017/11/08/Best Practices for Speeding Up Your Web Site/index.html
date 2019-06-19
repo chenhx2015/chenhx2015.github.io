@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl">
+  
+  
+  
+  
+  <title>Web站点加速最佳实践 | 我的技术博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;emsp;&amp;emsp;在高性能 Web 建设指南摘要总结了前端性能优化的 14 条原则，在高性能 Web 进阶指南中，也由一些建议。几年过去了，Yahoo 的 Exceptional Performance team 总结的规则也发展到 35 条。原文地址。规则分为七类：页面内容，服务器，cookie，css，javascript，图片和手机端。&amp;emsp;&amp;emsp; 根据原文翻译整理了一下，">
+<meta name="keywords" content="前端性能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web站点加速最佳实践">
+<meta property="og:url" content="https://chenhx9211.github.io/2017/11/08/Best Practices for Speeding Up Your Web Site/index.html">
+<meta property="og:site_name" content="我的技术博客">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;在高性能 Web 建设指南摘要总结了前端性能优化的 14 条原则，在高性能 Web 进阶指南中，也由一些建议。几年过去了，Yahoo 的 Exceptional Performance team 总结的规则也发展到 35 条。原文地址。规则分为七类：页面内容，服务器，cookie，css，javascript，图片和手机端。&amp;emsp;&amp;emsp; 根据原文翻译整理了一下，">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-19T09:11:19.277Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Web站点加速最佳实践">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;在高性能 Web 建设指南摘要总结了前端性能优化的 14 条原则，在高性能 Web 进阶指南中，也由一些建议。几年过去了，Yahoo 的 Exceptional Performance team 总结的规则也发展到 35 条。原文地址。规则分为七类：页面内容，服务器，cookie，css，javascript，图片和手机端。&amp;emsp;&amp;emsp; 根据原文翻译整理了一下，">
+  
+    <link rel="alternative" href="/atom.xml" title="我的技术博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/thumbsup.jpg">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/ali.png" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">chenhuaxiang</a></h1>
+          <span>爱编程，爱睡觉😪</span>
+        </hgroup>
+        
+        
+
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/archives/">所有文章</a></li>
+                        
+                            <li><a  href="/categories/react">React</a></li>
+                        
+                            <li><a  href="/categories/redux">Redux</a></li>
+                        
+                            <li><a  href="/categories/javascript">JavaScript</a></li>
+                        
+                            <li><a  href="/categories/frontend">前端</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="https://github.com/chenhx2015/" title="github">github</a>
+                            
+                                <a class="fl rss"  target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                        </ul>
+
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/redux/" style="font-size: 10px;">redux</a> <a href="/tags/vue-vuex/" style="font-size: 10px;">vue vuex</a> <a href="/tags/前端性能/" style="font-size: 20px;">前端性能</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a>
+                    </div>
+                </section>
+                
+                
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">爱编程，爱睡觉😪</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">chenhuaxiang</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/ali.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">chenhuaxiang</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/categories/react">React</a></li>
+                
+                    <li><a href="/categories/redux">Redux</a></li>
+                
+                    <li><a href="/categories/javascript">JavaScript</a></li>
+                
+                    <li><a href="/categories/frontend">前端</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/chenhx2015/" title="github">github</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-Best Practices for Speeding Up Your Web Site" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/11/08/Best Practices for Speeding Up Your Web Site/" class="article-date">
+      <time datetime="2017-11-08T03:29:07.000Z" itemprop="datePublished">2017-11-08</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Web站点加速最佳实践
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/frontend/">frontend</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端性能/">前端性能</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>&emsp;&emsp;在<a href="/2017/09/06/高性能Web建设指南摘要">高性能 Web 建设指南摘要</a>总结了前端性能优化的 14 条原则，在高性能 Web 进阶指南中，也由一些建议。几年过去了，Yahoo 的 Exceptional Performance team 总结的规则也发展到 35 条。<a href="https://developer.yahoo.com/performance/rules.html" target="_blank" rel="noopener">原文地址</a>。规则分为七类：页面内容，服务器，cookie，css，javascript，图片和手机端。<br>&emsp;&emsp; 根据原文翻译整理了一下，记录了一些新的原则。感谢前端工具的发展，如 webpack，eslint，其中很多优化原则都可以让工具自动实施。其中原来的黄金规则可参看<a href="/2017/09/06/高性能Web建设指南摘要">高性能 Web 建设指南摘要</a></p>
+<a id="more"></a>
+
+<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><h3 id="减少-DOM-元素数量"><a href="#减少-DOM-元素数量" class="headerlink" title="减少 DOM 元素数量"></a>减少 DOM 元素数量</h3><p>&emsp;&emsp; 检查文档 dom 数量的简单办法，在浏览器控制台运行下一行代码:<br>document.getElementsByTagName(‘*‘).length</p>
+<h3 id="尽量减少使用-iframe"><a href="#尽量减少使用-iframe" class="headerlink" title="尽量减少使用 iframe"></a>尽量减少使用 iframe</h3><p>iframe 帮助第三方内容嵌入，帮助脚本并行下载，但是使用它的代价很大，它会阻塞页面加载</p>
+<h3 id="不使用-404"><a href="#不使用-404" class="headerlink" title="不使用 404"></a>不使用 404</h3><p>一个无用的响应(例如 404 Not Found) 完全没有用处，只会降低用户体验。有些站点使用诸如”Did you mean X?”的 404 响应, 对用户体验有帮助但是浪费了服务器资源(例如数据库等). 如果链接是一个外部的脚本，而返回的响应是 404，尤其糟糕：首先, 脚本下载会阻塞并行下载，其次如果 404 响应的 body 是 JavaScript 代码，浏览器会去解析脚本。</p>
+<h2 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h2><h3 id="Flush-the-Buffer-Early"><a href="#Flush-the-Buffer-Early" class="headerlink" title="Flush the Buffer Early"></a>Flush the Buffer Early</h3><p>When users request a page, it can take anywhere from 200 to 500ms for the backend server to stitch together the HTML page. During this time, the browser is idle as it waits for the data to arrive. In PHP you have the function flush(). It allows you to send your partially ready HTML response to the browser so that the browser can start fetching components while your backend is busy with the rest of the HTML page. The benefit is mainly seen on busy backends or light frontends.</p>
+<p>A good place to consider flushing is right after the HEAD because the HTML for the head is usually easier to produce and it allows you to include any CSS and JavaScript files for the browser to start fetching in parallel while the backend is still processing.</p>
+<p>Example:</p>
+<pre><code>  ... &lt;!-- css, js --&gt;
+&lt;/head&gt;
+&lt;?php flush(); ?&gt;
+&lt;body&gt;
+  ... &lt;!-- content --&gt;</code></pre><h3 id="Use-GET-for-AJAX-Requests"><a href="#Use-GET-for-AJAX-Requests" class="headerlink" title="Use GET for AJAX Requests"></a>Use GET for AJAX Requests</h3><p>The Yahoo! Mail team found that when using XMLHttpRequest, POST is implemented in the browsers as a two-step process: sending the headers first, then sending data. So it’s best to use GET, which only takes one TCP packet to send (unless you have a lot of cookies). The maximum URL length in IE is 2K, so if you send more than 2K data you might not be able to use GET.</p>
+<p>An interesting side affect is that POST without actually posting any data behaves like GET. Based on the HTTP specs, GET is meant for retrieving information, so it makes sense (semantically) to use GET when you’re only requesting data, as opposed to sending data to be stored server-side.</p>
+<h3 id="避免-Image-元素的-src-属性为空"><a href="#避免-Image-元素的-src-属性为空" class="headerlink" title="避免 Image 元素的 src 属性为空"></a>避免 Image 元素的 src 属性为空</h3><p>无论是 html 代码中的<code>&lt;img src=&quot;&quot;&gt;</code>或是通过 JavaScript</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var img = new Image();</span><br><span class="line">img.src = &quot;&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>都导致同样结果: 浏览器多发出一个 http 请求：</p>
+<ul>
+<li>Internet Explorer 会请求页面目录</li>
+<li>Safari 和 Chrome 会请求页面.</li>
+<li>Firefox 3 以及之前的版本如同 Safari 和 Chrome, 不过 3.5 不再发出请求.</li>
+<li>Opera 不会发出请求.</li>
+</ul>
+<p>Why is this behavior bad?</p>
+<p>Cripple your servers by sending a large amount of unexpected traffic, especially for pages that get millions of page views per day.<br>Waste server computing cycles generating a page that will never be viewed.<br>Possibly corrupt user data. If you are tracking state in the request, either by cookies or in another way, you have the possibility of destroying data. Even though the image request does not return an image, all of the headers are read and accepted by the browser, including all cookies. While the rest of the response is thrown away, the damage may already be done.</p>
+<p>HTML5 增加了对 to the description of the tag’s src attribute to instruct browsers not to make an additional request</p>
+<p>The src attribute must be present, and must contain a valid URL referencing a non-interactive, optionally animated, image resource that is neither paged nor scripted. If the base URI of the element is the same as the document’s address, then the src attribute’s value must not be the empty string.<br>Hopefully, browsers will not have this problem in the future. Unfortunately, there is no such clause for <code>&lt;script src=&quot;&quot;&gt;</code> and <code>&lt;link href=&quot;&quot;&gt;</code> Maybe there is still time to make that adjustment to ensure browsers don’t accidentally implement this behavior.<br>This rule was inspired by Yahoo!’s JavaScript guru Nicolas C. Zakas. For more information check out his article “Empty image src can destroy your site”.</p>
+<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><h3 id="减少-Cookie-大小"><a href="#减少-Cookie-大小" class="headerlink" title="减少 Cookie 大小"></a>减少 Cookie 大小</h3><h3 id="静态内容使用-Cookie-free-域名"><a href="#静态内容使用-Cookie-free-域名" class="headerlink" title="静态内容使用 Cookie-free 域名"></a>静态内容使用 Cookie-free 域名</h3><p>&emsp;&emsp; 浏览器请求静态图片等内容时候，Web 服务器一般并不使用 Cookie。因此，静态内容的主机名称使用 cookie-free 域名，浏览器就不会发送 cookie，可减少网络流量。</p>
+<h3 id="避免使用-CSS-Filter"><a href="#避免使用-CSS-Filter" class="headerlink" title="避免使用 CSS Filter"></a>避免使用 CSS Filter</h3><p>&emsp;&emsp; The IE-proprietary AlphaImageLoader filter aims to fix a problem with semi-transparent true color PNGs in IE versions &lt; 7. The problem with this filter is that it blocks rendering and freezes the browser while the image is being downloaded. It also increases memory consumption and is applied per element, not per image, so the problem is multiplied.</p>
+<p>&emsp;&emsp; The best approach is to avoid AlphaImageLoader completely and use gracefully degrading PNG8 instead, which are fine in IE. If you absolutely need AlphaImageLoader, use the underscore hack _filter as to not penalize your IE7+ users.</p>
+<h3 id="Choose-over-import"><a href="#Choose-over-import" class="headerlink" title="Choose  over @import"></a>Choose <link> over @import</h3><p>&emsp;&emsp; One of the previous best practices states that CSS should be at the top in order to allow for progressive rendering.</p>
+<p>&emsp;&emsp; In IE @import behaves the same as using <link> at the bottom of the page, so it’s best not to use it.</p>
+<h2 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h2><h3 id="Minimize-DOM-Access"><a href="#Minimize-DOM-Access" class="headerlink" title="Minimize DOM Access"></a>Minimize DOM Access</h3><p>&emsp;&emsp; Accessing DOM elements with JavaScript is slow so in order to have a more responsive page, you should:</p>
+<p>Cache references to accessed elements<br>Update nodes “offline” and then add them to the tree<br>Avoid fixing layout with JavaScript<br>For more information check the YUI theatre’s “High Performance Ajax Applications” by Julien Lecomte.</p>
+<h3 id="Develop-Smart-Event-Handlers"><a href="#Develop-Smart-Event-Handlers" class="headerlink" title="Develop Smart Event Handlers"></a>Develop Smart Event Handlers</h3><p>&emsp;&emsp; Sometimes pages feel less responsive because of too many event handlers attached to different elements of the DOM tree which are then executed too often. That’s why using event delegation is a good approach. If you have 10 buttons inside a div, attach only one event handler to the div wrapper, instead of one handler for each button. Events bubble up so you’ll be able to catch the event and figure out which button it originated from.</p>
+<p>You also don’t need to wait for the onload event in order to start doing something with the DOM tree. Often all you need is the element you want to access to be available in the tree. You don’t have to wait for all images to be downloaded. DOMContentLoaded is the event you might consider using instead of onload, but until it’s available in all browsers, you can use the YUI Event utility, which has an onAvailable method.</p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><h3 id="Optimize-CSS-Sprites"><a href="#Optimize-CSS-Sprites" class="headerlink" title="Optimize CSS Sprites"></a>Optimize CSS Sprites</h3><p>Arranging the images in the sprite horizontally as opposed to vertically usually results in a smaller file size.<br>Combining similar colors in a sprite helps you keep the color count low, ideally under 256 colors so to fit in a PNG8.<br>“Be mobile-friendly” and don’t leave big gaps between the images in a sprite. This doesn’t affect the file size as much but requires less memory for the user agent to decompress the image into a pixel map. 100x100 image is 10 thousand pixels, where 1000x1000 is 1 million pixels</p>
+<h3 id="不要在-HTML-中缩放图片"><a href="#不要在-HTML-中缩放图片" class="headerlink" title="不要在 HTML 中缩放图片"></a>不要在 HTML 中缩放图片</h3><p>&emsp;&emsp; 例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img width=&quot;100&quot; height=&quot;100&quot; src=&quot;mycat.jpg&quot; alt=&quot;My Cat&quot; /&gt;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp; 图片 mycat.jpg 就应该是 100x100px，而不是一个 500x500px.</p>
+<h3 id="favicon-ico"><a href="#favicon-ico" class="headerlink" title="favicon.ico"></a>favicon.ico</h3><p>&emsp;&emsp;浏览器每次访问网站，都会自动请求，因此最好是在根目录创建一个 favicon.ico，同时尽可能缓存</p>
+<ul>
+<li>尽量小于 1K.</li>
+<li>设置 Expires 头</li>
+</ul>
+<h2 id="手机端"><a href="#手机端" class="headerlink" title="手机端"></a>手机端</h2><h3 id="组件-译者注：指的是-html-页面，css，js，图片等等页面内容文件-的大小不要超过-25K"><a href="#组件-译者注：指的是-html-页面，css，js，图片等等页面内容文件-的大小不要超过-25K" class="headerlink" title="组件(译者注：指的是 html 页面，css，js，图片等等页面内容文件)的大小不要超过 25K"></a>组件(译者注：指的是 html 页面，css，js，图片等等页面内容文件)的大小不要超过 25K</h3><p>iPhone 不会缓冲大于 25K 的内容。 值得注意的是 25k 是指解压后的文件大小，单独使用 gzip 不起作用，因此减少文件的大小很重要。</p>
+<p>详情可参看 Wayne Shea 和 Tenni Theurer 写的<a href="http://yuiblog.com/blog/2008/02/06/iphone-cacheability/" target="_blank" rel="noopener">“Performance Research, Part 5: iPhone Cacheability - Making it Stick”</a>.</p>
+<h3 id="Pack-Components-into-a-Multipart-Document"><a href="#Pack-Components-into-a-Multipart-Document" class="headerlink" title="Pack Components into a Multipart Document"></a>Pack Components into a Multipart Document</h3><p>把内容组件打包到一个 multipart 文档，就像带附件的电子邮件, 有助于使用一次 HTTP 请求，获取多个内容组件。使用这个技巧前, 首先检查一下客户端的 user agent 是否支持(iPhone 不支持)。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+<nav id="article-nav">
+  
+    <a  href="/2018/04/12/es6/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          es6
+        
+      </div>
+    </a>
+  
+  
+    <a  href="/2017/09/23/高性能Web进阶指南摘要/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">高性能Web进阶指南摘要</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#内容"><span class="toc-number">1.</span> <span class="toc-text">内容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#减少-DOM-元素数量"><span class="toc-number">1.1.</span> <span class="toc-text">减少 DOM 元素数量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#尽量减少使用-iframe"><span class="toc-number">1.2.</span> <span class="toc-text">尽量减少使用 iframe</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不使用-404"><span class="toc-number">1.3.</span> <span class="toc-text">不使用 404</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务器"><span class="toc-number">2.</span> <span class="toc-text">服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Flush-the-Buffer-Early"><span class="toc-number">2.1.</span> <span class="toc-text">Flush the Buffer Early</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Use-GET-for-AJAX-Requests"><span class="toc-number">2.2.</span> <span class="toc-text">Use GET for AJAX Requests</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#避免-Image-元素的-src-属性为空"><span class="toc-number">2.3.</span> <span class="toc-text">避免 Image 元素的 src 属性为空</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cookie"><span class="toc-number">3.</span> <span class="toc-text">Cookie</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#减少-Cookie-大小"><span class="toc-number">3.1.</span> <span class="toc-text">减少 Cookie 大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态内容使用-Cookie-free-域名"><span class="toc-number">3.2.</span> <span class="toc-text">静态内容使用 Cookie-free 域名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#避免使用-CSS-Filter"><span class="toc-number">3.3.</span> <span class="toc-text">避免使用 CSS Filter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Choose-over-import"><span class="toc-number">3.4.</span> <span class="toc-text">Choose  over @import</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Javascript"><span class="toc-number">4.</span> <span class="toc-text">Javascript</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Minimize-DOM-Access"><span class="toc-number">4.1.</span> <span class="toc-text">Minimize DOM Access</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Develop-Smart-Event-Handlers"><span class="toc-number">4.2.</span> <span class="toc-text">Develop Smart Event Handlers</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片"><span class="toc-number">5.</span> <span class="toc-text">图片</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Optimize-CSS-Sprites"><span class="toc-number">5.1.</span> <span class="toc-text">Optimize CSS Sprites</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不要在-HTML-中缩放图片"><span class="toc-number">5.2.</span> <span class="toc-text">不要在 HTML 中缩放图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#favicon-ico"><span class="toc-number">5.3.</span> <span class="toc-text">favicon.ico</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#手机端"><span class="toc-number">6.</span> <span class="toc-text">手机端</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#组件-译者注：指的是-html-页面，css，js，图片等等页面内容文件-的大小不要超过-25K"><span class="toc-number">6.1.</span> <span class="toc-text">组件(译者注：指的是 html 页面，css，js，图片等等页面内容文件)的大小不要超过 25K</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pack-Components-into-a-Multipart-Document"><span class="toc-number">6.2.</span> <span class="toc-text">Pack Components into a Multipart Document</span></a></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+<div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+    <link rel="stylesheet" type="text/css" href="/css/showshare.css"></head>
+    <div id="share" class="bdsharebuttonbox">
+        <button class="share-toggle-button"><i class="share-icon fa fa-share-alt"></i>
+        </button>
+        <ul class="share-items">
+            <li class="share-item"><a href="#" class="share-button fa fa-weibo" data-cmd="tsina" title="分享到新浪微博"></a></li>
+            <li class="share-item"><a href="#" class="share-button fa fa-weixin" data-cmd="weixin" title="分享到微信"></a></li>
+            <li class="share-item"><a href="#" class="share-button fa fa-qq" data-cmd="sqq" title="分享到QQ好友"></a></li>
+            <li class="share-item"><a href="#" class="share-button fa fa-facebook" data-cmd="fbook" title="分享到Facebook"></a></li>
+            <li class="share-item"><a href="#" class="share-button fa fa-twitter" data-cmd="twi" title="分享到Twitter"></a></li>
+            <li class="share-item"><a href="#" class="share-button fa fa-linkedin" data-cmd="linkedin" title="分享到linkedin"></a></li>
+        </ul>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="800">
+        <defs>
+            <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -15" result="goo" />
+                <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+            </filter>
+        </defs>
+    </svg>
+    <!-- 推荐开源CDN来选取需引用的外部JS //-->
+    <script type="text/javascript" src="http://cdn.gbtags.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/js/TweenMax.min.js"></script>
+    <script src="/js/TweenMax.js"></script>
+<script>
+    window._bd_share_config = {
+    common : {
+                    bdText : '',
+                    //文本内容
+                    bdDesc : 'Luuman，90后，水瓶座普通男青年！爱折腾，爱运动，更爱游离于错综复杂的编码与逻辑中，无法自拔。相信编程是一门艺术，自诩为游弋在代码里的人生。',
+                    // 描述
+                    bdUrl : 'http://luuman.github.io/',
+                    // URL地址
+                    bdPic : 'https://hexo.io/build/screenshots/spfk-2b30506937.png'
+                    // 图片信息
+                },
+        share: [{
+            "bdSize": 24
+        }]
+    }
+    with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~ (-new Date() / 36e5)];
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-33765729-1']);
+    _gaq.push(['_setDomainName', 'chuanke.com']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/2018/04/12/es6/" title="上一篇: es6">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/2017/09/23/高性能Web进阶指南摘要/" title="下一篇: 高性能Web进阶指南摘要">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/06/18/基于vue vuex es6 webpack的项目/">基于vue vuex es6 webpack的项目</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/13/redux/">redux</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/12/es6/">es6</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/08/Best Practices for Speeding Up Your Web Site/">Web站点加速最佳实践</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/23/高性能Web进阶指南摘要/">高性能Web进阶指南摘要</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/06/执行上下文和作用域链/">执行上下文和作用域链</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/06/闭包/">闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/06/高性能Web建设指南摘要/">高性能Web建设指南摘要</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/10/layout/">react-native 常用的布局：flexbox</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/15/多种继承方式/">继承的多种方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/02/原型和原型链/">原型和原型链</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/20/JavaScript代码的解释和执行/">JavaScript代码的解释和执行</a></li></ul>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2019 chenhuaxiang
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
