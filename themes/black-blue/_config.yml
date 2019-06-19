@@ -6,11 +6,10 @@
 menu:
   # 主页: /archives/
   所有文章: /archives/
-  CSS: /categories/css/
-  # React: /categories/react
+  React: /categories/react
   Redux: /categories/redux
-  ES6: /categories/es6
-  javascript: /categories/javascript
+  JavaScript: /categories/javascript
+  前端: /categories/frontend
   # 前端必备: /categories/前端必备
   # tips: /categories/tips
   # 关于我: /about/

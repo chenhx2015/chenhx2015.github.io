@@ -1,6 +1,6 @@
 ---
 title: 基于vue vuex es6 webpack的项目
-date: 2017-04-11 21:46:37
+date: 2017-048-11 21:46:37
 tags: vue vuex
 categories: vue
 ---
