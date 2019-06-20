@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chenhx9211.github.io/2018/11/03/react-mall/</loc>
+    
+    <lastmod>2019-06-20T07:39:38.654Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://chenhx9211.github.io/2019/04/03/react-hook/</loc>
     
     <lastmod>2019-06-20T06:26:33.255Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://chenhx9211.github.io/2018/04/13/redux/</loc>
     
     <lastmod>2019-06-20T06:26:17.355Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://chenhx9211.github.io/2018/11/03/react-mall/</loc>
-    
-    <lastmod>2019-06-20T06:23:33.380Z</lastmod>
     
   </url>
   
