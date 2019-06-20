@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://chenhx9211.github.io/2019/06/18/%E5%9F%BA%E4%BA%8Evue%20vuex%20es6%20webpack%E7%9A%84%E9%A1%B9%E7%9B%AE/</loc>
+    <lastmod>2019-06-20</lastmod>
+  </url>  <url>
     <loc>https://chenhx9211.github.io/2018/11/03/react-mall/</loc>
+    <lastmod>2019-06-20</lastmod>
+  </url>  <url>
+    <loc>https://chenhx9211.github.io/2019/06/20/2019-06-20-react-use-locked-state/</loc>
     <lastmod>2019-06-20</lastmod>
   </url>  <url>
     <loc>https://chenhx9211.github.io/2019/04/03/react-hook/</loc>
@@ -26,9 +32,6 @@
     <lastmod>2019-06-19</lastmod>
   </url>  <url>
     <loc>https://chenhx9211.github.io/2017/07/10/layout/</loc>
-    <lastmod>2019-06-19</lastmod>
-  </url>  <url>
-    <loc>https://chenhx9211.github.io/2019/06/18/%E5%9F%BA%E4%BA%8Evue%20vuex%20es6%20webpack%E7%9A%84%E9%A1%B9%E7%9B%AE/</loc>
     <lastmod>2019-06-19</lastmod>
   </url>  <url>
     <loc>https://chenhx9211.github.io/2017/09/23/%E9%AB%98%E6%80%A7%E8%83%BDWeb%E8%BF%9B%E9%98%B6%E6%8C%87%E5%8D%97%E6%91%98%E8%A6%81/</loc>

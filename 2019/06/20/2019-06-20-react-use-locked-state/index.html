@@ -7,20 +7,20 @@
   
   
   
-  <title>闭包 | CHX的技术博客</title>
+  <title>react-use-locked-state | CHX的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="闭包 = 函数 + 函数能够访问的自由变量">
-<meta name="keywords" content="闭包">
+  <meta name="description" content="&amp;emsp;&amp;emsp;React 中的数据流是单向的，并顺着组件层级从上往下传递。这在绝大多数的场合下，都很好使，稍微注意一下避免无谓的的重新渲染即可。配合上 redux，那更是把数据和应用状态管理得井井有条，给人以深刻的印象。 &amp;emsp;&amp;emsp;最近遇到一个需求，用户在访问页面后，前端使用异步请求获取后端给予的多个勋章奖励，对于每个勋章，需弹出对话框，等用户确认后，再在页面其它组件上显示">
+<meta name="keywords" content="react,hook">
 <meta property="og:type" content="article">
-<meta property="og:title" content="闭包">
-<meta property="og:url" content="https://chenhx9211.github.io/2017/09/06/闭包/index.html">
+<meta property="og:title" content="react-use-locked-state">
+<meta property="og:url" content="https://chenhx9211.github.io/2019/06/20/2019-06-20-react-use-locked-state/index.html">
 <meta property="og:site_name" content="CHX的技术博客">
-<meta property="og:description" content="闭包 = 函数 + 函数能够访问的自由变量">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;React 中的数据流是单向的，并顺着组件层级从上往下传递。这在绝大多数的场合下，都很好使，稍微注意一下避免无谓的的重新渲染即可。配合上 redux，那更是把数据和应用状态管理得井井有条，给人以深刻的印象。 &amp;emsp;&amp;emsp;最近遇到一个需求，用户在访问页面后，前端使用异步请求获取后端给予的多个勋章奖励，对于每个勋章，需弹出对话框，等用户确认后，再在页面其它组件上显示">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-19T14:35:32.985Z">
+<meta property="og:updated_time" content="2019-06-20T10:18:19.940Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="闭包">
-<meta name="twitter:description" content="闭包 = 函数 + 函数能够访问的自由变量">
+<meta name="twitter:title" content="react-use-locked-state">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;React 中的数据流是单向的，并顺着组件层级从上往下传递。这在绝大多数的场合下，都很好使，稍微注意一下避免无谓的的重新渲染即可。配合上 redux，那更是把数据和应用状态管理得井井有条，给人以深刻的印象。 &amp;emsp;&amp;emsp;最近遇到一个需求，用户在访问页面后，前端使用异步请求获取后端给予的多个勋章奖励，对于每个勋章，需弹出对话框，等用户确认后，再在页面其它组件上显示">
   
     <link rel="alternative" href="/atom.xml" title="CHX的技术博客" type="application/atom+xml">
   
@@ -192,11 +192,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-闭包" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-2019-06-20-react-use-locked-state" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2017/09/06/闭包/" class="article-date">
-      <time datetime="2017-09-06T13:09:11.000Z" itemprop="datePublished">2017-09-06</time>
+      <a  href="/2019/06/20/2019-06-20-react-use-locked-state/" class="article-date">
+      <time datetime="2019-06-20T14:13:21.000Z" itemprop="datePublished">2019-06-20</time>
 </a>
 
     </div>
@@ -210,7 +210,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      闭包
+      react-use-locked-state
     </h1>
   
 
@@ -220,13 +220,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+    <a class="article-category-link" href="/categories/code/">code</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/闭包/">闭包</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hook/">hook</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -236,72 +236,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>闭包 = 函数 + 函数能够访问的自由变量</p>
+        <p>&emsp;&emsp;React 中的数据流是单向的，并顺着组件层级从上往下传递。这在绝大多数的场合下，都很好使，稍微注意一下避免无谓的的重新渲染即可。配合上 redux，那更是把数据和应用状态管理得井井有条，给人以深刻的印象。</p>
+<p>&emsp;&emsp;最近遇到一个需求，用户在访问页面后，前端使用异步请求获取后端给予的多个勋章奖励，对于每个勋章，需弹出对话框，等用户确认后，再在页面其它组件上显示动画；多个勋章，挨个依以上次序处理。对话框和动画显示组件并没有上下级组件关系，只是个平行关系。</p>
 <a id="more"></a>
 
-<h2 id="自由变量"><a href="#自由变量" class="headerlink" title="自由变量"></a>自由变量</h2><p>&emsp;&emsp;自由变量是指在函数中使用的，但既不是函数参数也不是函数的局部变量的变量，也称为未绑定变量(unbound)。相对而言，参数和局部变量就是绑定变量。</p>
-<p>&emsp;&emsp;举个例子：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;foo 函数可以访问变量 a，但是 a 既不是 foo 函数的局部变量，也不是 foo 函数的参数，所以 a 就是自由变量。</p>
-<h2 id="闭包-closure"><a href="#闭包-closure" class="headerlink" title="闭包(closure)"></a>闭包(closure)</h2><p>&emsp;&emsp;了解了自由变量，闭包的定义就很好理解：闭包是指那些能够访问自由变量的函数。<br>&emsp;&emsp;从理论角度：所有的 JavaScript 函数都是闭包。因为它们都在创建的时候就将上层上下文的数据保存起来了, 在函数中访问全局变量就相当于是在访问自由变量。<br>&emsp;&emsp;从实践角度：以下函数才算是闭包：</p>
-<ul>
-<li>即使创建它的上下文已经销毁，它仍然存在（比如，内部函数从父函数中返回）</li>
-<li>在代码中引用了自由变量</li>
-</ul>
-<p>&emsp;&emsp;JavaScript 权威指南对闭包的定义是:<br>&emsp;&emsp;闭包就是一个函数对象和一个作用域(scope, a set of variable bindings，在这个作用域中，该函数的所有变量都能查找到)的结合，</p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>&emsp;&emsp;当 JavaScript 代码执行一段可执行代码(executable code)时，会创建对应的执行上下文(execution context)。对于每个执行上下文，都有三个重要属性：</p>
-<ul>
-<li>变量对象(Variable object，VO)</li>
-<li>作用域链(Scope chain)</li>
-<li>this</li>
-</ul>
-<p>来自《JavaScript 权威指南》的例子：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scope = <span class="string">"global scope"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkscope</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> scope = <span class="string">"local scope"</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> scope;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> foo = checkscope();</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;分析一下这段代码中执行上下文栈和执行上下文的变化情况。</p>
-<ol>
-<li>进入全局代码，创建全局执行上下文，全局执行上下文压入执行上下文栈</li>
-<li>全局执行上下文初始化</li>
-<li>执行 checkscope 函数，创建 checkscope 函数执行上下文，checkscope 执行上下文被压入执行上下文栈</li>
-<li>checkscope 执行上下文初始化，创建变量对象、作用域链、this 等</li>
-<li>checkscope 函数执行完毕，checkscope 执行上下文从执行上下文栈中弹出</li>
-<li>执行 f 函数，创建 f 函数执行上下文，f 执行上下文被压入执行上下文栈</li>
-<li>f 执行上下文初始化，创建变量对象、作用域链、this 等</li>
-<li>f 函数执行完毕，f 函数上下文从执行上下文栈中弹出</li>
-</ol>
-<p>&emsp;&emsp;当 f 函数执行的时候，checkscope 函数上下文已经从执行上下文栈中被弹出被销毁，怎么还会读取到 checkscope 作用域下的 scope 值呢？</p>
-<p>当我们了解了具体的执行过程后，我们知道 f 执行上下文维护了一个作用域链：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fContext = &#123;</span><br><span class="line">  Scope: [AO, checkscopeContext.AO, globalContext.VO]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;即使 checkscopeContext 被销毁了，当 f 函数引用了 checkscopeContext.VO 中的值的时候， JavaScript 依然会让 checkscopeContext.VO 保持在内存中，f 函数依然可以通过 f 函数的作用域链找到它，实现了闭包。</p>
-<p>面试必考的闭包题：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = [];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">  data[i] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">data[<span class="number">0</span>]();</span><br><span class="line">data[<span class="number">1</span>]();</span><br><span class="line">data[<span class="number">2</span>]();</span><br></pre></td></tr></table></figure>
-
-<p>答案是都是 3，让我们分析一下原因：</p>
-<p>当执行到 data[0] 函数之前，此时全局上下文的 VO 为：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">globalContext = &#123;</span><br><span class="line">    VO: &#123;</span><br><span class="line">        data: [...],</span><br><span class="line">        i: <span class="number">3</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>当执行 data[0] 函数的时候，data[0] 函数的作用域链为：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="number">0</span>]Context = &#123;</span><br><span class="line">    Scope: [AO, globalContext.VO]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>data[0]Context 的 AO 并没有 i 值，所以会从 globalContext.VO 中查找，i 为 3，所以打印的结果就是 3。</p>
-<p>data[1] 和 data[2] 是一样的道理。</p>
-<p>改成下面的代码看看：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = [];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">  data[i] = (<span class="function"><span class="keyword">function</span>(<span class="params">i</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;)(i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">data[<span class="number">0</span>]();</span><br><span class="line">data[<span class="number">1</span>]();</span><br><span class="line">data[<span class="number">2</span>]();</span><br></pre></td></tr></table></figure>
-
-<p>当执行到 data[0] 函数之前，此时全局上下文的 VO 为：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">globalContext = &#123;</span><br><span class="line">    VO: &#123;</span><br><span class="line">        data: [...],</span><br><span class="line">        i: <span class="number">3</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>跟没改之前一模一样。</p>
-<p>当执行 data[0] 函数的时候，data[0] 函数的作用域链发生了改变：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="number">0</span>]Context = &#123;</span><br><span class="line">    Scope: [AO, 匿名函数Context.AO, globalContext.VO]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>匿名函数执行上下文的 AO 为：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">匿名函数Context = &#123;</span><br><span class="line">  AO: &#123;</span><br><span class="line">    <span class="built_in">arguments</span>: &#123;</span><br><span class="line">      <span class="number">0</span>: <span class="number">0</span>,</span><br><span class="line">      length: <span class="number">1</span></span><br><span class="line">    &#125;,</span><br><span class="line">    i: <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>data[0]Context 的 AO 并没有 i 值，所以会沿着作用域链从匿名函数 Context.AO 中查找，这时候就会找 i 为 0，找到了就不会往 globalContext.VO 中查找了，即使 globalContext.VO 也有 i 的值(值为 3)，所以打印的结果就是 0。</p>
-<p>data[1] 和 data[2] 是一样的道理。</p>
+<p>&emsp;&emsp;一开始只使用 react（因为整个 app 挺简单的，就没使用 redux），在异步请求，对话框关闭回调中，以及相关个组件中加入控制逻辑，做下来一看，代码加了不少，而且这个控制逻辑分散在多个组件中，代码的味道很差，需要考虑下重构了。</p>
+<p>&emsp;&emsp;首先考虑了使用 redux 来控制这个显示的次序，估算一下，得为相关组件单独设计出好几个 state 和 action，同样的，组件中的其余代码会和这个控制逻辑没什么关系。这种场景，redux 也不太好应付啊。</p>
+<p>&emsp;&emsp;最终使用的是 react 新引入的 hook，使用起来非常方便，简单的项目不再需要一个 redux 之类的状态管理器来保存应用状态。不过针对动画显示次序这样的需求，hook 也不好直接匹配。在自定义了一个 hook 之后，程序才算是比较简洁了，而且 App 重新渲染的次数也少了。<br><a href="https://github.com/chenhx2015/react-use-locked-state" target="_blank" rel="noopener">项目代码</a><br><a href="https://chenhx2015.github.io/react-use-locked-state/" target="_blank" rel="noopener">演示</a></p>
 
       
     </div>
@@ -313,18 +254,9 @@
 
 <nav id="article-nav">
   
-    <a  href="/2017/09/23/高性能Web进阶指南摘要/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          高性能Web进阶指南摘要
-        
-      </div>
-    </a>
   
-  
-    <a  href="/2017/09/06/高性能Web建设指南摘要/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">高性能Web建设指南摘要</div>
+    <a  href="/2019/06/18/基于vue vuex es6 webpack的项目/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">基于vue vuex es6 webpack的项目</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -336,7 +268,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#自由变量"><span class="toc-number">1.</span> <span class="toc-text">自由变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包-closure"><span class="toc-number">2.</span> <span class="toc-text">闭包(closure)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析"><span class="toc-number">3.</span> <span class="toc-text">分析</span></a></li></ol>
+    
 </div>
 <style>
     .left-col .switch-btn {
@@ -469,13 +401,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2017/09/23/高性能Web进阶指南摘要/" title="上一篇: 高性能Web进阶指南摘要">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2017/09/06/高性能Web建设指南摘要/" title="下一篇: 高性能Web建设指南摘要">
+            <a  href="/2019/06/18/基于vue vuex es6 webpack的项目/" title="下一篇: 基于vue vuex es6 webpack的项目">
                 <i class="fa fa-angle-right"></i>
             </a>
         
