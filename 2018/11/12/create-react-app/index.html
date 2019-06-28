@@ -7,19 +7,20 @@
   
   
   
-  <title>JavaScript代码的解释和执行 | CHX的技术博客</title>
+  <title>create-react-app .env 使用 | CHX的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="当函数执行的时候，执行上下文栈、变量对象、作用域链如何变化。">
+  <meta name="description" content="&amp;emsp;&amp;emsp;create-react-app 是 React 官方支持的创建单页 React 应用的工具。虽然它也通过 Webpack 来打包，但是用不着去做 Webpack 繁琐的配置，上手非常快，而且前端开发需要的优化和处理，基本上都覆盖到了。&amp;emsp;&amp;emsp;化繁为简，的确是把利器，目前为止，还没遇到过需要重新做 Webpack 包配置的情况。有一个缺点，用久了这个，很容易">
+<meta name="keywords" content="react">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript代码的解释和执行">
-<meta property="og:url" content="https://chenhx9211.github.io/2016/04/20/JavaScript代码的解释和执行/index.html">
+<meta property="og:title" content="create-react-app .env 使用">
+<meta property="og:url" content="https://chenhx9211.github.io/2018/11/12/create-react-app/index.html">
 <meta property="og:site_name" content="CHX的技术博客">
-<meta property="og:description" content="当函数执行的时候，执行上下文栈、变量对象、作用域链如何变化。">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;create-react-app 是 React 官方支持的创建单页 React 应用的工具。虽然它也通过 Webpack 来打包，但是用不着去做 Webpack 繁琐的配置，上手非常快，而且前端开发需要的优化和处理，基本上都覆盖到了。&amp;emsp;&amp;emsp;化繁为简，的确是把利器，目前为止，还没遇到过需要重新做 Webpack 包配置的情况。有一个缺点，用久了这个，很容易">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-19T12:30:11.774Z">
+<meta property="og:updated_time" content="2019-06-28T02:08:44.094Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript代码的解释和执行">
-<meta name="twitter:description" content="当函数执行的时候，执行上下文栈、变量对象、作用域链如何变化。">
+<meta name="twitter:title" content="create-react-app .env 使用">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;create-react-app 是 React 官方支持的创建单页 React 应用的工具。虽然它也通过 Webpack 来打包，但是用不着去做 Webpack 繁琐的配置，上手非常快，而且前端开发需要的优化和处理，基本上都覆盖到了。&amp;emsp;&amp;emsp;化繁为简，的确是把利器，目前为止，还没遇到过需要重新做 Webpack 包配置的情况。有一个缺点，用久了这个，很容易">
   
     <link rel="alternative" href="/atom.xml" title="CHX的技术博客" type="application/atom+xml">
   
@@ -191,11 +192,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-JavaScript代码的解释和执行" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-create-react-app" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2016/04/20/JavaScript代码的解释和执行/" class="article-date">
-      <time datetime="2016-04-20T13:09:11.000Z" itemprop="datePublished">2016-04-20</time>
+      <a  href="/2018/11/12/create-react-app/" class="article-date">
+      <time datetime="2018-11-12T02:13:26.000Z" itemprop="datePublished">2018-11-12</time>
 </a>
 
     </div>
@@ -209,7 +210,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JavaScript代码的解释和执行
+      create-react-app .env 使用
     </h1>
   
 
@@ -219,11 +220,15 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+    <a class="article-category-link" href="/categories/framework/">framework</a>
     </div>
 
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -231,17 +236,31 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>当函数执行的时候，执行上下文栈、变量对象、作用域链如何变化。</p>
+        <p>&emsp;&emsp;create-react-app 是 React 官方支持的创建单页 React 应用的工具。虽然它也通过 Webpack 来打包，但是用不着去做 Webpack 繁琐的配置，上手非常快，而且前端开发需要的优化和处理，基本上都覆盖到了。<br>&emsp;&emsp;化繁为简，的确是把利器，目前为止，还没遇到过需要重新做 Webpack 包配置的情况。有一个缺点，用久了这个，很容易忘记如何使用 Webpack。<br>&emsp;&emsp;create-react-app 还提供了环境变量机制，增加加几个简单的文件就可以设置开发、测试和产品环境下的环境变量。</p>
 <a id="more"></a>
 
-<p>&emsp;&emsp;比较两段代码</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"foo1"</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">foo(); <span class="comment">// foo1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"foo2"</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">foo(); <span class="comment">// foo2</span></span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;下面一段代码：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"foo1"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo(); <span class="comment">// foo2</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"foo2"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo(); <span class="comment">// foo2</span></span><br></pre></td></tr></table></figure>
-
-<p>打印的结果却是两个 <code>foo2</code>。</p>
-<p>JavaScript 引擎并非一行一行地分析解释和执行代码，而是先把整段代码分析解释完成后再执行。分析代码时，如果有重复函数的定义，前面的定义会被后面的覆盖。上面的代码中，第一段代码函数定义采用匿名方式，第二段代码命名函数 foo 的定义，前者被后者覆盖。</p>
+<p>&emsp;&emsp;像 App 部署时的 url，后端 api 请求的 url 等等，在开发、测试和产品环境下，一般都是不同的。不使用环境变量机制，应用程序代码就得自己处理这些差异，要能识别不同的环境，在不同的环境下使用其对应的 url，基本上是把这些这些差异硬编码到应用代码中。<br>&emsp;&emsp;再看下使用环境变量机制的做法，如果项目的根目录下存在以下文件，app 就可以使用这些文件中设置的环境变量。</p>
+<ul>
+<li>.env: 默认</li>
+<li>.env.local: 除了测试环境，其他所有环境都会加载这个文件.</li>
+<li>.env.development, .env.test, .env.production: 指定开发、测试和产品环境下的变量.</li>
+<li>.env.development.local, .env.test.local, .env.production.local: 覆盖环境变量指定的设置.</li>
+</ul>
+<p>&emsp;&emsp;各个环境下，分别加载以下文件：</p>
+<ul>
+<li><code>npm start: .env.development.local, .env.development, .env.local, .env</code></li>
+<li><code>npm run build: .env.production.local, .env.production, .env.local, .env</code></li>
+<li><code>npm test: .env.test.local, .env.test, .env (注意，不加载 .env.local)</code></li>
+</ul>
+<p>&emsp;&emsp;左边的文件比右边的优先级高，也就是说多个文件中如果有相同的环境变量，优先使用左边文件定义的环境变量。</p>
+<p>&emsp;&emsp;举个例子，开发中，app 对应的 url 都是‘/’，而测试、部署的代码对应的可能不会是‘/’。只需要在对应的环境变量文件设置 PUBLIC_URL 为各自对应的 url，应用代码中就可以使用 process.env.PUBLIC_URL。<br>&emsp;&emsp;注意：PUBLIC_URL 是 create-react-app 定义，除了 NODE_ENV, 自定义环境变量起名都要 REACT_APP*为起首字符。其它 create-react-app 定义的环境变量还有：BROWSER，HOST，PORT，HTTPS 等。</p>
+<p>&emsp;&emsp;环境变量机制 是通过 dotenv 和 webpack 的配置来实现的，create-react-app 帮我们都配置好了，直接使用就行。顺便提一下，浏览器环境下是没有 process.env 对象的，webpack 在打包时，针对浏览器环境会使用一个插件创建出这个对象，因此在应用程序代码在浏览器环境下一样可以使用 process.env 下的环境变量。</p>
+<h5 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h5><ul>
+<li><a href="https://facebook.github.io/create-react-app/docs/getting-started" target="_blank" rel="noopener">create-react-app 文档</a></li>
+<li><a href="https://facebook.github.io/create-react-app/docs/adding-custom-environment-variables" target="_blank" rel="noopener">自定义环境变量</a></li>
+<li><a href="https://facebook.github.io/create-react-app/docs/advanced-configuration" target="_blank" rel="noopener">高级配置</a></li>
+<li><a href="https://github.com/motdotla/dotenv" target="_blank" rel="noopener">dotenv</a></li>
+</ul>
 
       
     </div>
@@ -253,15 +272,20 @@
 
 <nav id="article-nav">
   
-    <a  href="/2016/07/02/原型和原型链/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a  href="/2019/04/03/react-hook/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          原型和原型链
+          react hooks 学习体会
         
       </div>
     </a>
   
+  
+    <a  href="/2018/11/03/react-mall/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">仿淘宝商城App</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -271,7 +295,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#参考："><span class="toc-number">1.</span> <span class="toc-text">参考：</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -404,13 +428,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2016/07/02/原型和原型链/" title="上一篇: 原型和原型链">
+            <a  href="/2019/04/03/react-hook/" title="上一篇: react hooks 学习体会">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a  href="/2018/11/03/react-mall/" title="下一篇: 仿淘宝商城App">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
     <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/06/20/2019-06-20-react-use-locked-state/">react-use-locked-state</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/18/基于vue vuex es6 webpack的项目/">基于vue vuex es6 webpack的项目</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/03/react-hook/">react hooks 学习体会</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/12/create-react-app/">create-react-app .env 使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/11/03/react-mall/">仿淘宝商城App</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/13/redux/">redux学习心得</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/12/es6/">es6</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/08/Best Practices for Speeding Up Your Web Site/">Web站点加速最佳实践</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/23/高性能Web进阶指南摘要/">高性能Web进阶指南摘要</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/06/高性能Web建设指南摘要/">高性能Web建设指南摘要</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/06/闭包/">闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/06/执行上下文和作用域链/">执行上下文和作用域链</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/10/layout/">react-native 常用的布局：flexbox</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/15/多种继承方式/">继承的多种方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/02/原型和原型链/">原型和原型链</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/20/JavaScript代码的解释和执行/">JavaScript代码的解释和执行</a></li></ul>
